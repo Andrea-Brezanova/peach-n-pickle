@@ -1,26 +1,49 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@theme {
+  /* Peach & Pickle palette (from the business card) */
+  --color-cream: #faf7f2;
+  --color-ink: #141414;
+  --color-muted: #4a4542;
+  --color-peach: #f1ac91;
+  --color-magenta: #d4246f;
+
+  --animate-drift: drift 18s ease-in-out infinite alternate;
+
+  @keyframes drift {
+    to {
+      scale: 1.06;
+      translate: -16px 8px;
+    }
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-cream);
+  color: var(--color-ink);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Soft peach / pink / lavender stand-in for the showreel until real footage exists */
+.showreel-placeholder {
+  background:
+    radial-gradient(ellipse at 20% 40%, rgb(241 172 145 / 0.95), transparent 50%),
+    radial-gradient(ellipse at 52% 30%, rgb(247 217 205 / 0.9), transparent 45%),
+    radial-gradient(ellipse at 84% 60%, rgb(68 102 196 / 0.55), transparent 50%),
+    radial-gradient(ellipse at 66% 88%, rgb(212 36 111 / 0.5), transparent 48%),
+    repeating-linear-gradient(135deg, rgb(20 20 20 / 0.04) 0 1px, transparent 1px 16px),
+    #d9c8c2;
 }
