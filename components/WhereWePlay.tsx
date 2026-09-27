@@ -1,17 +1,12 @@
 import MediaPlaceholder from "@/components/MediaPlaceholder";
-import PaintDrops from "@/components/PaintDrops";
+import CircleDrops from "@/components/CircleDrops";
+import { cardDropSets } from "@/components/dropSets";
 import { sectionLabel, sectionTitle } from "@/components/ui";
 
 const places = [
-  { name: "Weddings", photo: "Photo · ceremony or first dance", color: "#f1ac91", mask: "/splashes/portrait-1.png" },
-  { name: "Private parties", photo: "Photo · garden or dinner party", color: "#d4246f", mask: "/splashes/portrait-2.png" },
-  {
-    name: "Venues & special events",
-    photo: "Photo · hotel or restaurant evening",
-    color: "#4466c4",
-    mask: "/splashes/portrait-1.png",
-    flip: true,
-  },
+  { name: "Weddings", photo: "Photo · ceremony or first dance", color: "#f1ac91" },
+  { name: "Private parties", photo: "Photo · garden or dinner party", color: "#d4246f" },
+  { name: "Venues & special events", photo: "Photo · hotel or restaurant evening", color: "#4466c4" },
 ];
 
 export default function WhereWePlay() {
@@ -28,16 +23,11 @@ export default function WhereWePlay() {
 
         {/* Mobile: swipe sideways · Desktop: three across */}
         <ul className="mt-2 flex snap-x snap-mandatory scroll-px-9 gap-11 overflow-x-auto px-9 py-10 [scrollbar-width:none] md:py-0 md:mt-20 md:grid md:grid-cols-3 md:gap-14 md:overflow-visible md:px-0 [&::-webkit-scrollbar]:hidden">
-          {places.map((place) => (
+          {places.map((place, i) => (
             <li key={place.name} className="w-[72vw] max-w-[300px] shrink-0 snap-start md:w-auto md:max-w-none">
               <figure className="flex flex-col gap-12 md:gap-16">
                 <div className="relative">
-                  <PaintDrops
-                    mask={place.mask}
-                    color={place.color}
-                    className="top-1/2 -left-[12%] aspect-[620/745] w-[124%] -translate-y-1/2"
-                    style={place.flip ? { scale: "-1 1" } : undefined}
-                  />
+                  <CircleDrops drops={cardDropSets[i]} color={place.color} />
                   <MediaPlaceholder tag="Photo" note={place.photo} className="aspect-[4/5]" />
                 </div>
                 <figcaption className="relative text-center text-[28px] leading-tight font-semibold tracking-[-0.04em] md:text-[34px]">

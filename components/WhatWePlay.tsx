@@ -1,7 +1,6 @@
 import Image from "next/image";
 import MediaPlaceholder from "@/components/MediaPlaceholder";
-import Waveform from "@/components/Waveform";
-import { sectionLabel, sectionTitle, type RGB } from "@/components/ui";
+import { sectionLabel, sectionTitle } from "@/components/ui";
 
 // Each style gets a video (placeholder for now) — rows alternate video left / right.
 const styles: {
@@ -10,21 +9,18 @@ const styles: {
   bestFor: string;
   video: string;
   dark?: boolean;
-  wave: { from: RGB; to: RGB; height: number; duration: number; seed: number };
 }[] = [
   {
     name: "Acoustic",
     text: "Piano + voice. Soft, close and a little goosebumpy.",
     bestFor: "Ceremonies · Apéros · Dinner",
     video: "Video · acoustic set, piano + voice",
-    wave: { from: [241, 172, 145], to: [241, 172, 145], height: 12, duration: 2.4, seed: 0.4 },
   },
   {
     name: "Lounge",
     text: "Relaxed, stylish reinterpretations of songs you know.",
     bestFor: "Cocktail hours · Walking dinners",
     video: "Video · lounge set at cocktail hour",
-    wave: { from: [212, 36, 111], to: [138, 72, 174], height: 28, duration: 1.4, seed: 2.2 },
   },
   {
     name: "House / Electro",
@@ -32,7 +28,6 @@ const styles: {
     bestFor: "Receptions · Parties · Late sets",
     video: "Video · house set, guests dancing",
     dark: true,
-    wave: { from: [138, 72, 174], to: [94, 179, 228], height: 40, duration: 0.8, seed: 3.1 },
   },
 ];
 
@@ -56,6 +51,22 @@ export default function WhatWePlay() {
         height={887}
         className="pointer-events-none absolute bottom-[60px] -left-[100px] hidden w-[340px] opacity-50 motion-safe:animate-drift md:block"
         style={{ animationDelay: "-6s" }}
+      />
+      <Image
+        src="/watercolor/peach.webp"
+        alt=""
+        width={932}
+        height={1199}
+        className="pointer-events-none absolute top-[44%] -left-[60px] hidden w-[200px] rotate-[64deg] opacity-45 motion-safe:animate-drift md:block lg:left-[-40px]"
+        style={{ animationDelay: "-3s" }}
+      />
+      <Image
+        src="/watercolor/lavender.webp"
+        alt=""
+        width={1189}
+        height={887}
+        className="pointer-events-none absolute top-[63%] -right-[90px] w-[220px] -rotate-12 opacity-40 motion-safe:animate-drift md:w-[300px]"
+        style={{ animationDelay: "-9s" }}
       />
 
       <div className="relative mx-auto max-w-[1312px]">
@@ -93,9 +104,6 @@ export default function WhatWePlay() {
                 <h3 className="mt-1.5 text-4xl leading-none font-semibold tracking-[-0.045em] md:text-[64px] lg:mt-0">
                   {style.name}
                 </h3>
-                <div className="flex h-10 items-center md:h-12">
-                  <Waveform {...style.wave} bars={36} animated />
-                </div>
                 <p className="text-base leading-normal md:text-[19px]">{style.text}</p>
                 <p className="text-sm text-muted md:text-[15px]">
                   <b className="font-semibold text-ink">Best for</b> · {style.bestFor}

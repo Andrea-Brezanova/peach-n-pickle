@@ -16,8 +16,8 @@ const links = [
 const contact = {
   email: "peachnpicklemusic@gmail.com",
   phones: [
-    { name: "Simona", display: "0489 51 22 47", tel: "+32489512247" },
-    { name: "Xavier", display: "0478 63 28 26", tel: "+32478632826" },
+    { name: "Simona", display: "+32 (0)489 51 22 47", tel: "+32489512247" },
+    { name: "Xavier", display: "+32 (0)478 63 28 26", tel: "+32478632826" },
   ],
   instagram: { handle: "@peachnpicklemusic", href: "https://www.instagram.com/peachnpicklemusic/" },
 };
@@ -114,9 +114,13 @@ export default function Footer() {
                 href={contact.instagram.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={footerLink}
+                aria-label={`Instagram ${contact.instagram.handle} (opens in a new tab)`}
+                className={`${footerLink} gap-2`}
               >
-                Instagram · {contact.instagram.handle}
+                <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" className="shrink-0">
+                  {socials[0].icon}
+                </svg>
+                {contact.instagram.handle}
               </a>
             </div>
           </div>

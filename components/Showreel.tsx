@@ -17,9 +17,6 @@ const videos = [
   { src: "/videos/clip-07.mp4", poster: "/videos/clip-07.jpg", title: "", category: "", color: "#5EB3E4" },
 ];
 
-// Paint-drop splatters around each card (alpha masks in /public/splashes/, sized for 9:16 cards)
-const splashes = ["/splashes/dots-1.png", "/splashes/dots-2.png", "/splashes/dots-3.png"];
-
 const clipName = (i: number) => videos[i].title || `Clip ${i + 1}`;
 
 const prefersReducedMotion = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -140,7 +137,7 @@ export default function Showreel() {
       aria-controls="showreel-track"
       disabled={direction === -1 ? !canPrev : !canNext}
       onClick={() => scrollByCard(direction)}
-      className={`${arrowClass} absolute top-1/2 z-10 hidden -translate-y-1/2 bg-cream md:flex ${
+      className={`${arrowClass} absolute top-1/2 z-10 hidden -translate-y-1/2 bg-sand md:flex ${
         direction === -1 ? "left-2 lg:left-4" : "right-2 lg:right-4"
       }`}
     >
@@ -158,7 +155,7 @@ export default function Showreel() {
   );
 
   return (
-    <section id="showreel" aria-label="Showreel" className="scroll-mt-4 pb-16 md:pb-[120px]">
+    <section id="showreel" aria-label="Showreel" className="scroll-mt-4 bg-sand pt-4 pb-16 md:pt-10 md:pb-[120px]">
       {/* Side gutters hold the arrows; the track shows 2 cards on tablet and 3 on desktop */}
       <div className="relative mx-auto max-w-[1440px] md:px-16 lg:px-20">
         {arrow(-1)}
@@ -179,19 +176,6 @@ export default function Showreel() {
                 aria-label={`${name}, ${i + 1} of ${videos.length}`}
                 className="relative w-[70vw] max-w-[330px] shrink-0 snap-start md:w-[calc((100%-4rem)/2)] md:max-w-none lg:w-[calc((100%-8rem)/3)]"
               >
-                {/* Paint drops splattered around the card (mask keeps its own proportions so drops stay round) */}
-                <div
-                  aria-hidden="true"
-                  className="pointer-events-none absolute top-1/2 -left-[12%] w-[124%] -translate-y-1/2"
-                  style={{
-                    aspectRatio: "620 / 1010",
-                    backgroundColor: video.color,
-                    maskImage: `url(${splashes[i % splashes.length]})`,
-                    WebkitMaskImage: `url(${splashes[i % splashes.length]})`,
-                    maskSize: "100% 100%",
-                    WebkitMaskSize: "100% 100%",
-                  }}
-                />
                 <div className="relative aspect-[9/16] overflow-hidden bg-ink/10">
                   <video
                     ref={(el) => {
