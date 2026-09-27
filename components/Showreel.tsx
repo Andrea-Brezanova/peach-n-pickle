@@ -55,13 +55,12 @@ function loadYouTubeApi() {
 
 /**
  * One featured performance video. Shows a poster first and only loads the YouTube player
- * (privacy-enhanced) when the visitor presses play. The poster comes back when the video ends,
- * stays paused for a moment, or is scrolled out of view.
+ * (privacy-enhanced) when the visitor presses play. The poster comes back when the video ends
+ * or stays paused for a while; it keeps playing while the visitor scrolls.
  */
 export default function Showreel() {
   const [started, setStarted] = useState(false); // player has been loaded
   const [showPoster, setShowPoster] = useState(true);
-  const frameRef = useRef<HTMLDivElement>(null);
   const mountRef = useRef<HTMLDivElement>(null);
   const holderRef = useRef<HTMLDivElement>(null);
   const playerRef = useRef<YTPlayer | null>(null);
@@ -117,24 +116,6 @@ export default function Showreel() {
     player.playVideo();
   };
 
-  // Scrolled away while playing → pause and bring the poster back
-  useEffect(() => {
-    const frame = frameRef.current;
-    if (!frame || !started) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        const player = playerRef.current;
-        if (entry.isIntersecting || !player) return;
-        if (player.getPlayerState?.() === window.YT?.PlayerState.PLAYING) player.pauseVideo();
-        clearTimeout(pauseTimer.current);
-        setShowPoster(true);
-      },
-      { threshold: 0.25 },
-    );
-    observer.observe(frame);
-    return () => observer.disconnect();
-  }, [started]);
-
   useEffect(
     () => () => {
       clearTimeout(pauseTimer.current);
@@ -151,7 +132,7 @@ export default function Showreel() {
       className="relative scroll-mt-4 bg-sand px-5 py-14 sm:px-10 md:py-20 lg:px-16 lg:py-24"
     >
       <div className="mx-auto flex max-w-[1312px] flex-col items-center">
-        <div ref={frameRef} className="relative w-full shadow-[0_30px_60px_-35px_rgb(70_45_35/0.45)]">
+        <div className="relative w-full shadow-[0_30px_60px_-35px_rgb(70_45_35/0.45)]">
           <div className="relative aspect-video overflow-hidden bg-ink">
             {/* YouTube swaps this div for its player iframe */}
             {started && (
