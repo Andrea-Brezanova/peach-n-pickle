@@ -134,7 +134,7 @@ export default function BookingForm() {
       </div>
 
       <p role="status" aria-live="polite" className="text-[15px] leading-relaxed md:col-span-2">
-        {status === "success" && "Thank you! Your message is on its way to Peach & Pickle. We’ll be in touch soon."}
+        {status === "success" && "Thank you! Your request has been sent to Peach & Pickle. We’ll be in touch soon."}
         {status === "error" && (
           <>
             {errorMessage || "Sorry, something went wrong sending your request."} You can also write to us at{" "}
