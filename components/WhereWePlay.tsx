@@ -6,7 +6,7 @@ import { sectionLabel, sectionTitle } from "@/components/ui";
 const places = [
   { name: "Weddings", photo: "Photo · ceremony or first dance", color: "#e4a88f" },
   { name: "Private parties", photo: "Photo · garden or dinner party", color: "#c2567c" },
-  { name: "Venues & special events", photo: "Photo · hotel or restaurant evening", color: "#6076b0" },
+  { name: "Special events", photo: "Photo · hotel or restaurant evening", color: "#6076b0" },
 ];
 
 export default function WhereWePlay() {
