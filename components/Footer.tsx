@@ -52,23 +52,6 @@ export default function Footer() {
               <br />
               and events
             </p>
-            <a
-              href={contact.instagram.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`Instagram ${contact.instagram.handle} (opens in a new tab)`}
-              className="group mt-6 flex items-center gap-3 self-start rounded-full pr-2 hover:text-peach focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cream"
-            >
-              {/* Instagram brand gradient */}
-              <span className="flex size-11 items-center justify-center rounded-full bg-[radial-gradient(circle_at_30%_107%,#fdf497_0%,#fdf497_5%,#fd5949_45%,#d6249f_60%,#285aeb_90%)] transition group-hover:scale-105">
-                <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" className="text-white">
-                  <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" strokeWidth="1.8" />
-                  <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" strokeWidth="1.8" />
-                  <circle cx="17.3" cy="6.7" r="1.2" fill="currentColor" />
-                </svg>
-              </span>
-              <span className="text-sm font-medium md:text-[15px]">{contact.instagram.handle}</span>
-            </a>
           </div>
 
           <div className="grid grid-cols-2 gap-5 md:contents">
@@ -95,6 +78,23 @@ export default function Footer() {
                   {p.name} · {p.display}
                 </a>
               ))}
+              <a
+                href={contact.instagram.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Instagram ${contact.instagram.handle} (opens in a new tab)`}
+                className="group mt-1 flex min-h-11 items-center gap-2.5 self-start rounded-full pr-2 hover:text-peach md:mt-1.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cream"
+              >
+                {/* Instagram brand gradient */}
+                <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-[radial-gradient(circle_at_30%_107%,#fdf497_0%,#fdf497_5%,#fd5949_45%,#d6249f_60%,#285aeb_90%)] transition group-hover:scale-105">
+                  <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" className="text-white">
+                    <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" strokeWidth="1.8" />
+                    <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" strokeWidth="1.8" />
+                    <circle cx="17.3" cy="6.7" r="1.2" fill="currentColor" />
+                  </svg>
+                </span>
+                <span>{contact.instagram.handle}</span>
+              </a>
             </div>
           </div>
         </div>

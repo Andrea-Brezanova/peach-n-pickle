@@ -4,9 +4,9 @@ import { cardDropSets } from "@/components/dropSets";
 import { sectionLabel, sectionTitle } from "@/components/ui";
 
 const places = [
-  { name: "Weddings", photo: "Photo · ceremony or first dance", color: "#f1ac91" },
-  { name: "Private parties", photo: "Photo · garden or dinner party", color: "#d4246f" },
-  { name: "Venues & special events", photo: "Photo · hotel or restaurant evening", color: "#4466c4" },
+  { name: "Weddings", photo: "Photo · ceremony or first dance", color: "#e4a88f" },
+  { name: "Private parties", photo: "Photo · garden or dinner party", color: "#c2567c" },
+  { name: "Venues & special events", photo: "Photo · hotel or restaurant evening", color: "#6076b0" },
 ];
 
 export default function WhereWePlay() {
@@ -27,7 +27,7 @@ export default function WhereWePlay() {
             <li key={place.name} className="w-[72vw] max-w-[300px] shrink-0 snap-start md:w-auto md:max-w-none">
               <figure className="flex flex-col gap-12 md:gap-16">
                 <div className="relative">
-                  <CircleDrops drops={cardDropSets[i]} color={place.color} />
+                  <CircleDrops drops={cardDropSets[i]} color={place.color} seed={i + 1} />
                   <MediaPlaceholder tag="Photo" note={place.photo} className="aspect-[4/5]" />
                 </div>
                 <figcaption className="relative text-center text-[28px] leading-tight font-semibold tracking-[-0.04em] md:text-[34px]">
