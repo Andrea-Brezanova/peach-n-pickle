@@ -6,10 +6,9 @@ import Link from "next/link";
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
-  { label: "Our sound", href: "/our-sound" },
+  { label: "Music", href: "/our-sound" },
   { label: "Weddings", href: "/weddings" },
   { label: "Events", href: "/events" },
-  { label: "Watch", href: "/watch" },
   { label: "About", href: "/about" },
 ];
 

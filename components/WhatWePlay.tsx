@@ -1,6 +1,7 @@
 import Image from "next/image";
 import MediaPlaceholder from "@/components/MediaPlaceholder";
-import { sectionLabel, sectionTitle } from "@/components/ui";
+import Waveform from "@/components/Waveform";
+import { sectionLabel, sectionTitle, type RGB } from "@/components/ui";
 
 // Each style gets a video (placeholder for now) — rows alternate video left / right.
 const styles: {
@@ -9,18 +10,21 @@ const styles: {
   bestFor: string;
   video: string;
   dark?: boolean;
+  wave: { from: RGB; to: RGB; height: number; duration: number; seed: number };
 }[] = [
   {
     name: "Acoustic",
     text: "Piano + voice. Soft, close and a little goosebumpy.",
     bestFor: "Ceremonies · Apéros · Dinner",
     video: "Video · acoustic set, piano + voice",
+    wave: { from: [241, 172, 145], to: [241, 172, 145], height: 12, duration: 2.4, seed: 0.4 },
   },
   {
     name: "Lounge",
     text: "Relaxed, stylish reinterpretations of songs you know.",
     bestFor: "Cocktail hours · Walking dinners",
     video: "Video · lounge set at cocktail hour",
+    wave: { from: [212, 36, 111], to: [138, 72, 174], height: 28, duration: 1.4, seed: 2.2 },
   },
   {
     name: "House / Electro",
@@ -28,6 +32,7 @@ const styles: {
     bestFor: "Receptions · Parties · Late sets",
     video: "Video · house set, guests dancing",
     dark: true,
+    wave: { from: [138, 72, 174], to: [94, 179, 228], height: 40, duration: 0.8, seed: 3.1 },
   },
 ];
 
@@ -104,6 +109,9 @@ export default function WhatWePlay() {
                 <h3 className="mt-1.5 text-4xl leading-none font-semibold tracking-[-0.045em] md:text-[64px] lg:mt-0">
                   {style.name}
                 </h3>
+                <div className="flex h-10 items-center md:h-12">
+                  <Waveform {...style.wave} bars={36} animated />
+                </div>
                 <p className="text-base leading-normal md:text-[19px]">{style.text}</p>
                 <p className="text-sm text-muted md:text-[15px]">
                   <b className="font-semibold text-ink">Best for</b> · {style.bestFor}

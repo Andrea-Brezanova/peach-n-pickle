@@ -4,10 +4,9 @@ import Link from "next/link";
 // Same destinations as the main navigation (+ FAQ, which lives on the booking page)
 const links = [
   { label: "Home", href: "/" },
-  { label: "Our sound", href: "/our-sound" },
+  { label: "Music", href: "/our-sound" },
   { label: "Weddings", href: "/weddings" },
   { label: "Events", href: "/events" },
-  { label: "Watch", href: "/watch" },
   { label: "About", href: "/about" },
   { label: "FAQ", href: "/book#faq" },
 ];
@@ -26,20 +25,6 @@ const legal = [
   { label: "Privacy policy", href: "#" },
   { label: "Terms", href: "#" },
   { label: "Legal notice", href: "#" },
-];
-
-const socials = [
-  {
-    label: "Instagram",
-    href: contact.instagram.href,
-    icon: (
-      <>
-        <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" strokeWidth="1.8" />
-        <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" strokeWidth="1.8" />
-        <circle cx="17.3" cy="6.7" r="1.2" fill="currentColor" />
-      </>
-    ),
-  },
 ];
 
 const heading = "mb-4 text-xs font-semibold tracking-[0.22em] text-peach uppercase";
@@ -67,23 +52,23 @@ export default function Footer() {
               <br />
               and events
             </p>
-            <ul className="mt-6 flex gap-2.5">
-              {socials.map((s) => (
-                <li key={s.label}>
-                  <a
-                    href={s.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`${s.label} (opens in a new tab)`}
-                    className="flex size-11 items-center justify-center rounded-full border border-cream/35 hover:border-peach hover:text-peach focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cream"
-                  >
-                    <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
-                      {s.icon}
-                    </svg>
-                  </a>
-                </li>
-              ))}
-            </ul>
+            <a
+              href={contact.instagram.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Instagram ${contact.instagram.handle} (opens in a new tab)`}
+              className="group mt-6 flex items-center gap-3 self-start rounded-full pr-2 hover:text-peach focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cream"
+            >
+              {/* Instagram brand gradient */}
+              <span className="flex size-11 items-center justify-center rounded-full bg-[radial-gradient(circle_at_30%_107%,#fdf497_0%,#fdf497_5%,#fd5949_45%,#d6249f_60%,#285aeb_90%)] transition group-hover:scale-105">
+                <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" className="text-white">
+                  <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" strokeWidth="1.8" />
+                  <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" strokeWidth="1.8" />
+                  <circle cx="17.3" cy="6.7" r="1.2" fill="currentColor" />
+                </svg>
+              </span>
+              <span className="text-sm font-medium md:text-[15px]">{contact.instagram.handle}</span>
+            </a>
           </div>
 
           <div className="grid grid-cols-2 gap-5 md:contents">
@@ -110,18 +95,6 @@ export default function Footer() {
                   {p.name} · {p.display}
                 </a>
               ))}
-              <a
-                href={contact.instagram.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`Instagram ${contact.instagram.handle} (opens in a new tab)`}
-                className={`${footerLink} gap-2`}
-              >
-                <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" className="shrink-0">
-                  {socials[0].icon}
-                </svg>
-                {contact.instagram.handle}
-              </a>
             </div>
           </div>
         </div>

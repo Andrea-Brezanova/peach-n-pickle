@@ -1,4 +1,4 @@
-import PaintMarker from "@/components/PaintMarker";
+import BrushCheck from "@/components/BrushCheck";
 import { sectionLabel, sectionTitle } from "@/components/ui";
 
 const reasons = [
@@ -25,12 +25,7 @@ export default function WhyUs() {
         <ul className="mt-10 grid w-full grid-cols-2 gap-x-5 gap-y-9 md:mt-[72px] md:grid-cols-4 md:gap-12">
           {reasons.map((reason, i) => (
             <li key={reason.title} className="flex flex-col items-center gap-2.5 md:gap-3.5">
-              <span className="md:hidden">
-                <PaintMarker color={reason.color} size={48} seed={i * 7 + 3} />
-              </span>
-              <span className="hidden md:inline-flex">
-                <PaintMarker color={reason.color} size={64} seed={i * 7 + 3} />
-              </span>
+              <BrushCheck color={reason.color} seed={i * 7 + 3} className="size-12 md:size-16" />
               <h3 className="pl-[0.22em] text-xs font-semibold tracking-[0.22em] uppercase md:pl-[0.26em] md:text-sm md:tracking-[0.26em]">
                 {reason.title}
               </h3>
