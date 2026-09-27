@@ -1,9 +1,12 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Showreel from "@/components/Showreel";
-import EveningTimeline from "@/components/EveningTimeline";
-import MusicStyles from "@/components/MusicStyles";
-import EventsGrid from "@/components/EventsGrid";
+import WhatWePlay from "@/components/WhatWePlay";
+import WhereWePlay from "@/components/WhereWePlay";
+import WhyUs from "@/components/WhyUs";
+import Testimonials from "@/components/Testimonials";
+import HowWeDoIt from "@/components/HowWeDoIt";
+import CelebrateCTA from "@/components/CelebrateCTA";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -13,9 +16,12 @@ export default function Home() {
       <main>
         <Hero />
         <Showreel />
-        <EveningTimeline />
-        <MusicStyles />
-        <EventsGrid />
+        <WhatWePlay />
+        <WhereWePlay />
+        <WhyUs />
+        <Testimonials />
+        <HowWeDoIt />
+        <CelebrateCTA />
       </main>
       <Footer />
     </>

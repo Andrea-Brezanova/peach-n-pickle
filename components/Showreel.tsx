@@ -158,13 +158,7 @@ export default function Showreel() {
   );
 
   return (
-    <section id="showreel" aria-labelledby="showreel-title" className="scroll-mt-4 pb-16 md:pb-[120px]">
-      <div className="mx-auto max-w-[1440px] px-5 sm:px-10 lg:px-16">
-        <h2 id="showreel-title" className="text-xs font-semibold tracking-[0.2em] uppercase md:text-[13px]">
-          Showreel
-        </h2>
-      </div>
-
+    <section id="showreel" aria-label="Showreel" className="scroll-mt-4 pb-16 md:pb-[120px]">
       {/* Side gutters hold the arrows; the track shows 2 cards on tablet and 3 on desktop */}
       <div className="relative mx-auto max-w-[1440px] md:px-16 lg:px-20">
         {arrow(-1)}

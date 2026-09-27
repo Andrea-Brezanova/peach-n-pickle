@@ -5,7 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 const NAV_LINKS = [
-  { label: "Music", href: "/music" },
+  { label: "Home", href: "/" },
+  { label: "Our sound", href: "/our-sound" },
   { label: "Weddings", href: "/weddings" },
   { label: "Events", href: "/events" },
   { label: "Watch", href: "/watch" },
@@ -26,7 +27,7 @@ export default function Navbar() {
   }, [open]);
 
   return (
-    <header className="relative z-20 bg-cream">
+    <header className="sticky top-0 z-30 bg-cream">
       <div className="flex h-[68px] items-center justify-between gap-4 px-5 md:h-[88px] md:px-10 lg:px-16">
         <Link href="/" aria-label="Peach & Pickle — home" className="shrink-0">
           <Image
@@ -40,8 +41,8 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop links */}
-        <nav aria-label="Main" className="hidden md:block">
-          <ul className="flex items-center gap-7 text-[15px] font-medium lg:gap-9">
+        <nav aria-label="Main" className="hidden lg:block">
+          <ul className="flex items-center gap-7 text-[15px] font-medium xl:gap-9">
             {NAV_LINKS.map((link) => (
               <li key={link.href}>
                 <Link
@@ -63,14 +64,14 @@ export default function Navbar() {
             {CTA.label}
           </Link>
 
-          {/* Mobile menu toggle */}
+          {/* Menu toggle (below 1024px) */}
           <button
             type="button"
             aria-expanded={open}
             aria-controls="mobile-menu"
             aria-label={open ? "Close menu" : "Open menu"}
             onClick={() => setOpen((v) => !v)}
-            className="flex size-11 items-center justify-center rounded-full border-[1.5px] border-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink md:hidden"
+            className="flex size-11 items-center justify-center rounded-full border-[1.5px] border-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink lg:hidden"
           >
             {open ? (
               <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
@@ -85,12 +86,12 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile menu panel */}
+      {/* Menu panel (below 1024px) */}
       <nav
         id="mobile-menu"
         aria-label="Main"
         hidden={!open}
-        className="absolute inset-x-0 top-full border-t border-ink/10 bg-cream px-5 pb-8 shadow-[0_24px_40px_-24px_rgb(20_20_20/0.25)] md:hidden"
+        className="absolute inset-x-0 top-full border-t border-ink/10 bg-cream px-5 pb-8 shadow-[0_24px_40px_-24px_rgb(20_20_20/0.25)] lg:hidden"
       >
         <ul className="flex flex-col">
           {NAV_LINKS.map((link) => (

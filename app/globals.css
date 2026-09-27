@@ -41,6 +41,14 @@ body {
 
 html {
   scroll-behavior: smooth;
+  /* keep anchored sections clear of the pinned navbar */
+  scroll-padding-top: 68px;
+}
+
+@media (min-width: 48rem) {
+  html {
+    scroll-padding-top: 88px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
